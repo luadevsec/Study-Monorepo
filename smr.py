@@ -1,32 +1,27 @@
-# Definindo as funções que serão utilizadas como estratégias
-def create_r(repo):
-    print("create repo %s" % repo)
+# programa.py
+import sys
+import creator
+import delete
 
-def create_p(project):
-    print("create project %s" % project)
-
-# Criando um dicionário para mapear chaves às funções
+# Mapeamento de chaves para as funções de criação e exclusão
 strategy_map = {
-    'create repo': create_r,
-    'create project': create_p,
+    "create": creator.execute,
+    "delete": delete.execute
 }
 
-# Função para chamar a estratégia com base na chave fornecida
-def execute_strategy(key_with_param):
-    parts = key_with_param.split()  # Dividindo a string em partes usando espaço como separador
-    if len(parts) >= 2:
-        key = ' '.join(parts[:-1])  # Juntando as partes da chave
-        param = parts[-1]  # O último elemento é o parâmetro
-        if key in strategy_map:
-            strategy = strategy_map[key]
-            strategy(param)  # Chamando a função da estratégia com o parâmetro
-        else:
-            print("Chave não encontrada.")
+# Verifica se há pelo menos dois argumentos (o primeiro é o nome do script e o segundo é a chave)
+if len(sys.argv) > 2:
+    print(sys.argv)
+    # Dividindo a string de parâmetros em uma lista usando espaço como separador
+    parametros = sys.argv[2:]
+    print("Parâmetros passados:")
+    for parametro in parametros:
+        print("-", parametro)
+    # Passando a chave e os parâmetros para a função execute da estratégia correspondente
+    strategy_key = sys.argv[1]
+    if strategy_key in strategy_map:
+        strategy_map[strategy_key](parametros[0], parametros[1:])
     else:
-        print("Formato inválido. Use 'chave parametro'.")
-
-# Exemplo de uso
-execute_strategy('create repo ss')
-execute_strategy('create project java')
-execute_strategy('chave3')
-execute_strategy('chave4')  # Testando uma chave que não existe
+        print("Chave não encontrada.")
+else:
+    print("help")

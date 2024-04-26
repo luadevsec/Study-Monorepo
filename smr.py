@@ -9,19 +9,17 @@ strategy_map = {
     "delete": delete.execute
 }
 
-# Verifica se há pelo menos dois argumentos (o primeiro é o nome do script e o segundo é a chave)
-if len(sys.argv) > 2:
-    print(sys.argv)
-    # Dividindo a string de parâmetros em uma lista usando espaço como separador
-    parametros = sys.argv[2:]
-    print("Parâmetros passados:")
-    for parametro in parametros:
-        print("-", parametro)
-    # Passando a chave e os parâmetros para a função execute da estratégia correspondente
+def sysLoader():
     strategy_key = sys.argv[1]
+    key = sys.argv[2]
+    parametros = sys.argv[3:]
     if strategy_key in strategy_map:
-        strategy_map[strategy_key](parametros[0], parametros[1:])
+        strategy_map[strategy_key](key, parametros)
     else:
-        print("Chave não encontrada.")
-else:
-    print("help")
+        print(f"comando '{strategy_key}' não encontrado") 
+
+def inputLoader():
+    print("help file")
+# Verifica se há pelo menos dois argumentos (o primeiro é o nome do script e o segundo é a chave)
+if len(sys.argv) > 2: sysLoader()
+else: inputLoader()

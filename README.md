@@ -8,7 +8,7 @@
  - [x] aceitar parametros na chamada do sistema
     - [x] criação do sysloader
     - [x] criação do inputloader
- - [ ] sysloader usando a arquitetura monolitica
+ - [x] sysloader usando a arquitetura monolitica
  - [ ] inputloader em loop com saida do programa
     - [ ] criar o metodo menu
     - [ ] criar o metodo exit

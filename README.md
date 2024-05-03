@@ -22,7 +22,7 @@ realmente quem fala que devemos fazer classes abstratas, interfaces e padrões e
     - [ ] criar o metodo menu help
         - [x] sair do monolito, criação de classes externas e independentes
         - [x] implementar um padrão de comandos
-        - [ ] refatorar o fluxo de execução
-    - [ ] criar o metodo exit
+        - [x] refatorar o fluxo de execução
+    - [x] criar o metodo exit
  - [ ] criar metodo de usar/transformar projetos
  - [ ] criar a implementação de create

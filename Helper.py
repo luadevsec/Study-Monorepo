@@ -12,11 +12,7 @@ class Helper(Command):
     'help : \tmostra essa mensagem ou a ajuda de um metodo especifico\n\t\thelp [method]'
     ]   
         
-    key_map = {
-        'delete' : Deleter.help,
-        'create' : Creator.help,
-        'help' : help,
-    }
+    
 
     def default():
         for help in Helper.summary_map:
@@ -28,3 +24,10 @@ class Helper(Command):
         ]
         for line in help_messenger:
             print(line)
+
+    key_map = {
+            'delete' : Deleter.help,
+            'create' : Creator.help,
+            'help' : help,
+            None: default,
+        }

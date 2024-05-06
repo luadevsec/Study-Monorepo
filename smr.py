@@ -7,12 +7,14 @@ from os import path # usado para filtrar o caminho vindo do getcwd
 from Creator import Creator
 from Deleter import Deleter
 from Helper import Helper
+from Test import Test
 
 # Mapeamento de chaves para as funções de execução
 command_map = {
     "create": Creator.execute,
     "delete": Deleter.execute,
-    "help": Helper.execute
+    "help": Helper.execute,
+    "test": Test.execute
 }
 
 def error(code, *parametros): # função que trata os erros

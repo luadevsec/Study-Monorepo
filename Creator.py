@@ -24,6 +24,13 @@ class Creator(Command):
         print("metodo default implementado")
         Creator.help()
         pass
+
+    def help():
+        help_messenger = [
+            "serio ? kkkkk você ta chamando o help do help ? kkkk mds"
+        ]
+        for line in help_messenger:
+            print(line)
     
     key_map = {
         "monorepo" : create_monorepo,

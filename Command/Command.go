@@ -25,9 +25,6 @@ func (c *Command) help (args []string) {
 	}	
 }
 
-func (c *Command) Init() {
-	c.Keymap["help"] = c.help
-}
 
 var C = Command{
 	Name: "Command",

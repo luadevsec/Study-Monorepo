@@ -9,19 +9,6 @@ type Deleter struct {
 	Command
 }
 
-var Delete = Deleter{
-	Command: Command{
-		Name:     "Delete",
-		Help_txt: []string{"delete - delete command", "help - show this help", "exit - exit the program"},
-		Keymap:   map[string]func([]string){},
-	},
-}
-
-func (c *Deleter) Init() {
-	c.Command.Keymap["help"] = c.Command.help
-	c.Command.Keymap["monorepo"] = c.Monorepo
-}
-
 func deleteFolder(local string, name string) {
 	os.RemoveAll(local + "/" + name)
 }
@@ -34,7 +21,6 @@ func contains(slice []string, item string) bool {
 	}
 	return false
 }
-
 
 func (c *Deleter) Monorepo(args []string) {
 	

@@ -8,19 +8,6 @@ type Create struct {
 	Command
 }
 
-var Creat = Create{
-	Command: Command{
-		Name:     "Create",
-		Help_txt: []string{"create - create command", "help - show this help", "exit - exit the program"},
-		Keymap:   map[string]func([]string){},
-	},
-}
-
-func (c *Create) Init() {
-	c.Command.Keymap["help"] = c.Command.help
-	c.Command.Keymap["monorepo"] = c.Monorepo
-}
-
 
 func (c *Create) Monorepo(args []string) {
 	src := []string{

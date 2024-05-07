@@ -7,18 +7,16 @@ import (
 	"strings"
 	"bufio"
 	"os"
+
 )
 
-var CommandMap = map[string] func (string, []string) {
-	"Command": Command.C.Execute,
-	"Create": Command.Creat.Execute,
-	"Delete": Command.Delete.Execute,
-}
+var CommandMap = map[string] Command.ICommand{}
+
 
 
 func Execute(cmd string, key string ,args []string) {
-	if fn, ok := CommandMap[cmd]; ok {
-		fn(key, args)
+	if command, ok := CommandMap[cmd]; ok {
+		command.Execute(key, args)
 	} else {
 		fmt.Println("Command not found")
 	}
@@ -40,13 +38,11 @@ func ParseCommand(input string) (string, string, []string) {
 }
 
 func main() {
-	Command.C.Init()
-	Command.Creat.Init()
-	Command.Delete.Init()
+	CommandMap["create"] = Command.CommandFactory(1)
+	CommandMap["delete"] = Command.CommandFactory(2)
 
 	for {
 		scanner := bufio.NewScanner(os.Stdin)
-
 		
 		var input string
 

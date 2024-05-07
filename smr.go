@@ -11,8 +11,8 @@ import (
 
 var CommandMap = map[string] func (string, []string) {
 	"Command": Command.C.Execute,
-	"Test": Command.T.Execute,
 	"Create": Command.Creat.Execute,
+	"Delete": Command.Delete.Execute,
 }
 
 
@@ -41,8 +41,8 @@ func ParseCommand(input string) (string, string, []string) {
 
 func main() {
 	Command.C.Init()
-	Command.T.Init()
 	Command.Creat.Init()
+	Command.Delete.Init()
 
 	for {
 		scanner := bufio.NewScanner(os.Stdin)

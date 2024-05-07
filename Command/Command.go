@@ -12,7 +12,7 @@ type Command struct {
 }
 
 func (c *Command) Execute(cmd string, args []string) {
-	if fn, ok := c.Keymap[cmd]; ok {
+	if fn, ok:= c.Keymap[cmd]; ok {
 		fn(args)
 	} else {
 		fmt.Println("Command not found")

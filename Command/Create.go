@@ -1,6 +1,8 @@
 package Command
 
-import "os"
+import (
+	"StudyMonorepo/utils"
+)
 
 type Create struct {
 	Command
@@ -19,9 +21,6 @@ func (c *Create) Init() {
 	c.Command.Keymap["monorepo"] = c.Monorepo
 }
 
-func createFolder(local string, name string) {
-	os.Mkdir(local+"/"+name, 0777)
-}
 
 func (c *Create) Monorepo(args []string) {
 	src := []string{
@@ -37,9 +36,14 @@ func (c *Create) Monorepo(args []string) {
 		name = args[0]
 	}
 
-	
-	createFolder(".", name)
+	utils.CreateFolder(".", name)
 	for _, folder := range src {
-		createFolder(name, folder)
+		utils.CreateFolder(name, folder)
 	}
 }
+
+func (c *Create) Component(args []string) {}
+
+func (c *Create) Homework(args []string) {}
+
+func (c *Create) SmallProject(args []string) {}

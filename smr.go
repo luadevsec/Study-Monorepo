@@ -18,7 +18,7 @@ func Execute(cmd string, key string ,args []string) {
 	if command, ok := CommandMap[cmd]; ok {
 		command.Execute(key, args)
 	} else {
-		fmt.Println("Command not found")
+		fmt.Println("Comando ", cmd, " não encontrado, digite help para ver os comandos disponíveis")
 	}
 }
 
@@ -40,6 +40,8 @@ func ParseCommand(input string) (string, string, []string) {
 func main() {
 	CommandMap["create"] = Command.CommandFactory(1)
 	CommandMap["delete"] = Command.CommandFactory(2)
+	CommandMap["test"] = Command.CommandFactory(3)
+	CommandMap["help"] = Command.CommandFactory(4)
 
 	for {
 		scanner := bufio.NewScanner(os.Stdin)

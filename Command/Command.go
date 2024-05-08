@@ -25,11 +25,3 @@ func (c *Command) help (args []string) {
 	}	
 }
 
-
-var C = Command{
-	Name: "Command",
-	Help_txt: []string{"help - show this help", "exit - exit the program"},
-	Keymap: map[string]func([]string){
-		
-	},
-}

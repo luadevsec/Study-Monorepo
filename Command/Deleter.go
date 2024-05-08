@@ -2,16 +2,14 @@ package Command
 
 import (
 	"fmt"
-	"os"
+	"StudyMonorepo/utils"
 )
 
 type Deleter struct {
 	Command
 }
 
-func deleteFolder(local string, name string) {
-	os.RemoveAll(local + "/" + name)
-}
+
 
 func contains(slice []string, item string) bool {
 	for _, s := range slice {
@@ -39,5 +37,5 @@ func (c *Deleter) Monorepo(args []string) {
 		return
 	}
 
-	deleteFolder(".", name)
+	utils.DeleteFolder(".", name)
 }

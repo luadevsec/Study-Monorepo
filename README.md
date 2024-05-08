@@ -19,10 +19,10 @@ realmente quem fala que devemos fazer classes abstratas, interfaces e padrões e
     - [x] criação do inputloader
  - [x] sysloader usando a arquitetura monolitica
  - [x] inputloader em loop com saida do programa
-    - [ ] criar o metodo menu help
+    - [x] criar o metodo menu help
         - [x] sair do monolito, criação de classes externas e independentes
         - [x] implementar um padrão de comandos
         - [x] refatorar o fluxo de execução
-    - [x] criar o metodo exit
+    - [ ] criar o metodo exit
  - [ ] criar metodo de usar/transformar projetos
  - [ ] criar a implementação de create

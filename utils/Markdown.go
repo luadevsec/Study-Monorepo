@@ -48,6 +48,23 @@ func ReadMonolist (path string)  (monos []string) {
 	}
 
 	return
-	
+}
+
+func DeleteMonorepo (path string, name string) {
+
+	content := ReadMonolist(path)
+	monolist, err := os.OpenFile(path + "/" + "Monolist" + ".md", os.O_WRONLY|os.O_TRUNC, 0777)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer monolist.Close()
+
+	for _ , mono := range content {
+		if mono != name {
+			monolist.WriteString("- " + mono + "\n")
+		}
+	}
 }
 	

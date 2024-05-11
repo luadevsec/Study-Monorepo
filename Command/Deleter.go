@@ -38,4 +38,6 @@ func (c *Deleter) Monorepo(args []string) {
 	}
 
 	utils.DeleteFolder(".", name)
+	utils.DeleteMonorepo(".", name)
+
 }

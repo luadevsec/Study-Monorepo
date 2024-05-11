@@ -15,5 +15,5 @@
    - [ ] logar em um monorepo
    - [ ] sair do monorepo
    - [x] criar um monorepo
-   - [ ] remover um monorepo
+   - [x] remover um monorepo
 

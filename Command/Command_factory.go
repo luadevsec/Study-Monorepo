@@ -19,6 +19,8 @@ func CommandFactory(who int) ICommand{
 		return doHelper()
 	case 5:
 		return doMonorepo()
+	case 6:
+		return doStarter()
 	}
 
 	return nil
@@ -29,6 +31,9 @@ func doCreator() *Create {
 	help_txt := []string{
 		"monorepo - create a monorepo",
 		"project - create a project",
+		"homework - create a homework",
+		"test - create a test",
+		"component - create a component",
 		"help - show this help",
 		"exit - exit the program",
 	}
@@ -44,6 +49,10 @@ func doCreator() *Create {
 	product.Keymap["help"] = product.Command.help
 	product.Keymap["monorepo"] = product.Monorepo
 	product.Keymap["project"] = product.Project
+	product.Keymap["homework"] = product.Homework
+	product.Keymap["test"] = product.Test
+	product.Keymap["component"] = product.Component
+
 	return product
 }
 
@@ -139,3 +148,22 @@ func doMonorepo() *Monorepo {
 	return product
 }
 
+func doStarter() *Starter {
+	help_txt := []string{
+		"help - show this help",
+		"start - start vscode with the monorepo",
+	}
+
+	product := &Starter{
+		Command: Command{
+			Name:     "Starter",
+			Help_txt: help_txt,
+			Keymap:   make(map[string]func(*string, []string)),
+		},
+	}
+
+	product.Keymap["help"] = product.Command.help
+	product.Keymap[""] = product.Start
+	product.Keymap["start"] = product.Start
+	return product
+}

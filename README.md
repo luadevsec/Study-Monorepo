@@ -28,13 +28,12 @@
 </details>
 
 
- - [ ] Creator
+ - [x] Creator
    - [x] criar monorepos
    - [x] criar projetos
-   - [ ] criar componentes em groups
-   - [ ] criar homeworks em groups
-   - [ ] criar testes
-   - [ ] criar answers
+   - [x] criar componentes em groups
+   - [x] criar homeworks em groups
+   - [x] criar testes
  - [ ] User
    - [ ] adicionar monorepos ja existentes ao sistema
    - [ ] adicionar projetos ja existentes
@@ -47,7 +46,6 @@
    - [ ] remover um componente
    - [ ] remover uma homework
    - [ ] remover um teste
-   - [ ] remover uma answer
  - [ ] Helper
    - [ ] help para creator
    - [ ] help para user
@@ -60,5 +58,4 @@
    - [ ] testar componentes
    - [ ] testar homeworks
    - [ ] testar testes
-   - [ ] testar answers
 

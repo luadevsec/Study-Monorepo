@@ -45,7 +45,11 @@ func main() {
 	CommandMap["test"] = Command.CommandFactory(3)
 	CommandMap["help"] = Command.CommandFactory(4)
 	CommandMap["monorepo"] = Command.CommandFactory(5)
+	CommandMap["start"] = Command.CommandFactory(6)
+
+	
 	CommandMap["mono"] = CommandMap["monorepo"]
+	CommandMap["run"] = CommandMap["start"]
 
 
 	for forever := true; forever;{

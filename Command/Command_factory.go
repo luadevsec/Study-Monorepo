@@ -71,6 +71,7 @@ func doTester() (product *Tester) {
 		"Dfolder - delete folder",
 		"Cfile - create file",
 		"Dfile - delete file",
+		"inferno - create an inferno",
 	}
 
 	product = &Tester{
@@ -87,6 +88,7 @@ func doTester() (product *Tester) {
 		"Dfolder": product.DeleteFolder,
 		"Cfile": product.CreateFile,
 		"Dfile": product.DeleteFile,
+		"inferno": product.Inferno,
 	}
 	return 
 }

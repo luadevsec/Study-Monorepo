@@ -2,6 +2,8 @@ package Command
 
 import (
 	"StudyMonorepo/utils"
+	"os"
+	"time"
 )
 
 type Tester struct {
@@ -43,4 +45,28 @@ func (c *Tester) DeleteFile (args []string) {
 	utils.DeleteFile(".", name + ".txt")
 	utils.DeleteFile(".", name + ".md")
 }
+
+func (c *Tester) Inferno (args []string) {
+	utils.CreateMonolist(".", "funcionando")
+	time.Sleep(2 * time.Second)
+	utils.CreateMonolist(".", "meu_monorepo")
+	time.Sleep(2 * time.Second)
+	utils.CreateMonolist(".", "principal")
+	time.Sleep(2 * time.Second)
+	utils.CreateMonolist(".", "javinha")
+	time.Sleep(2 * time.Second)
+	utils.CreateMonolist(".", "goLanguisse")
+
+	time.Sleep(4 * time.Second)
+
+	monos := utils.ReadMonolist(".")
+
+	for num, mono := range monos {
+		println(num, mono)
+	}
+
+	time.Sleep(10 * time.Second)
+	os.Remove("Monolist.md")
+}
+
 

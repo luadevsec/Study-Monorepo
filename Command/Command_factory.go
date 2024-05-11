@@ -58,9 +58,14 @@ func doCreator() *Create {
 
 func doDeleter() *Deleter {
 	help_txt := []string{
-		"delete - delete command",
+		"monorepo - delete a monorepo",
+		"project - delete a project",
+		"homework - delete a homework",
+		"test - delete a test",
+		"component - delete a component",
 		"help - show this help",
 		"exit - exit the program",
+
 	}
 
 	product := &Deleter{
@@ -73,6 +78,11 @@ func doDeleter() *Deleter {
 
 	product.Keymap["help"] = product.Command.help
 	product.Keymap["monorepo"] = product.Monorepo
+	product.Keymap["project"] = product.Project
+	product.Keymap["homework"] = product.Homework
+	product.Keymap["test"] = product.Test
+	product.Keymap["component"] = product.Component
+	
 	return product
 }
 

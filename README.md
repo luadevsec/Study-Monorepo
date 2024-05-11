@@ -40,12 +40,12 @@
    - [ ] adicionar componentes ja existentes
    - [ ] adicionar homeworks ja existentes
    - [ ] adicionar testes ja existentes
- - [ ] Deleter
+ - [x] Deleter
    - [x] remover um monorepo
-   - [ ] remover um projeto
-   - [ ] remover um componente
-   - [ ] remover uma homework
-   - [ ] remover um teste
+   - [x] remover um projeto
+   - [x] remover um componente
+   - [x] remover uma homework
+   - [x] remover um teste
  - [ ] Helper
    - [ ] help para creator
    - [ ] help para user

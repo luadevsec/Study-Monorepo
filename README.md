@@ -30,7 +30,7 @@
 
  - [ ] Creator
    - [x] criar monorepos
-   - [ ] criar projetos
+   - [x] criar projetos
    - [ ] criar componentes em groups
    - [ ] criar homeworks em groups
    - [ ] criar testes

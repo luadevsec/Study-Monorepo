@@ -27,7 +27,8 @@ func CommandFactory(who int) ICommand{
 
 func doCreator() *Create {
 	help_txt := []string{
-		"create - create command",
+		"monorepo - create a monorepo",
+		"project - create a project",
 		"help - show this help",
 		"exit - exit the program",
 	}
@@ -42,6 +43,7 @@ func doCreator() *Create {
 
 	product.Keymap["help"] = product.Command.help
 	product.Keymap["monorepo"] = product.Monorepo
+	product.Keymap["project"] = product.Project
 	return product
 }
 

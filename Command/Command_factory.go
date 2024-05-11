@@ -4,7 +4,7 @@ import (
 )
 
 type ICommand interface {
-	Execute(string, []string)
+	Execute(string, *string, []string) string
 }
 
 func CommandFactory(who int) ICommand{
@@ -17,55 +17,55 @@ func CommandFactory(who int) ICommand{
 		return doTester()
 	case 4:
 		return doHelper()
+	case 5:
+		return doMonorepo()
 	}
+
 	return nil
 }
 
-func doCreator() (product *Create){
+
+func doCreator() *Create {
 	help_txt := []string{
-		"create - create command", 
-		"help - show this help", 
+		"create - create command",
+		"help - show this help",
 		"exit - exit the program",
 	}
 
-	product = &Create{
+	product := &Create{
 		Command: Command{
 			Name:     "Create",
 			Help_txt: help_txt,
-			Keymap:   map[string]func([]string){},
+			Keymap:   make(map[string]func(*string, []string)),
 		},
 	}
 
-	product.Command.Keymap = map[string]func([]string){
-		"help": product.Command.help,
-		"monorepo": product.Monorepo,
-	}
-	return 
+	product.Keymap["help"] = product.Command.help
+	product.Keymap["monorepo"] = product.Monorepo
+	return product
 }
 
-func doDeleter() (product *Deleter){
+func doDeleter() *Deleter {
 	help_txt := []string{
-		"delete - delete command", 
-		"help - show this help", 
+		"delete - delete command",
+		"help - show this help",
 		"exit - exit the program",
 	}
 
-	product = &Deleter{
+	product := &Deleter{
 		Command: Command{
 			Name:     "Delete",
 			Help_txt: help_txt,
-			Keymap:   map[string]func([]string){},
+			Keymap:   make(map[string]func(*string, []string)),
 		},
 	}
 
-	product.Command.Keymap = map[string]func([]string){
-		"help": product.Command.help,
-		"monorepo": product.Monorepo,
-	}
-	return 
+	product.Keymap["help"] = product.Command.help
+	product.Keymap["monorepo"] = product.Monorepo
+	return product
 }
 
-func doTester() (product *Tester) {
+func doTester() *Tester {
 	help_txt := []string{
 		"Cfolder - create folder",
 		"Dfolder - delete folder",
@@ -74,48 +74,66 @@ func doTester() (product *Tester) {
 		"inferno - create an inferno",
 	}
 
-	product = &Tester{
+	product := &Tester{
 		Command: Command{
 			Name:     "Test",
 			Help_txt: help_txt,
-			Keymap:   map[string]func([]string){},
+			Keymap:   make(map[string]func(*string, []string)),
 		},
 	}
 
-	product.Command.Keymap = map[string]func([]string){
-		"help": product.Command.help,
-		"Cfolder": product.CreateFolder,
-		"Dfolder": product.DeleteFolder,
-		"Cfile": product.CreateFile,
-		"Dfile": product.DeleteFile,
-		"inferno": product.Inferno,
-	}
-	return 
+	product.Keymap["help"] = product.Command.help
+	product.Keymap["Cfolder"] = product.CreateFolder
+	product.Keymap["Dfolder"] = product.DeleteFolder
+	product.Keymap["Cfile"] = product.CreateFile
+	product.Keymap["Dfile"] = product.DeleteFile
+	product.Keymap["inferno"] = product.Inferno
+	return product
 }
 
-func doHelper() (product *Helper) {
+func doHelper() *Helper {
 	help_txt := []string{
-		"help - show this help", 
+		"help - show this help",
 		"create - create command",
 		"delete - delete command",
 		"test - test command",
 		"exit - exit the program",
 	}
 
-	product = &Helper{
+	product := &Helper{
 		Command: Command{
 			Name:     "Helper",
 			Help_txt: help_txt,
-			Keymap:   map[string]func([]string){},
+			Keymap:   make(map[string]func(*string, []string)),
 		},
 	}
 
-	product.Command.Keymap = map[string]func([]string){
-		"help": product.Command.help,
-		"": product.Command.help,
-		"create": doCreator().help,
-		"delete": doDeleter().help,
-		"test": doTester().help,
-	}
-	return 
+	product.Keymap["help"] = product.Command.help
+	product.Keymap[""] = product.Command.help
+	return product
 }
+
+func doMonorepo() *Monorepo {
+	help_txt := []string{
+		"help - show this help",
+		"list - list all monorepos",
+		"enter - enter a monorepo",
+		"exit - exit a monorepo",
+	}
+
+	product := &Monorepo{
+		Command: Command{
+			Name:     "Monorepo",
+			Help_txt: help_txt,
+			Keymap:   make(map[string]func(*string, []string)),
+		},
+	}
+
+	product.Keymap["help"] = product.Command.help
+	product.Keymap[""] = product.Command.help
+	product.Keymap["enter"] = product.Enter
+	product.Keymap["exit"] = product.Exit
+	product.Keymap["list"] = product.List
+	return product
+}
+

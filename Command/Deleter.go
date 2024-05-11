@@ -11,16 +11,9 @@ type Deleter struct {
 
 
 
-func contains(slice []string, item string) bool {
-	for _, s := range slice {
-		if s == item {
-			return true
-		}
-	}
-	return false
-}
 
-func (c *Deleter) Monorepo(args []string) {
+
+func (c *Deleter) Monorepo(path *string, args []string) {
 	
 
 	name := "Monorepo"
@@ -32,7 +25,7 @@ func (c *Deleter) Monorepo(args []string) {
 	var input string
 	fmt.Scanln(&input)
 	acept := []string{"y", "Y", "yes", "Yes", "YES", "s", "S", "si", "Si", "SI", "sim", "Sim", "SIM"}
-	if !contains(acept, input){
+	if !utils.Contains(acept, input){
 		fmt.Println("Aborted")
 		return
 	}

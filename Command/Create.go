@@ -9,7 +9,7 @@ type Create struct {
 }
 
 
-func (c *Create) Monorepo(args []string) {
+func (c *Create) Monorepo(path *string, args []string) {
 	src := []string{
 		"components",
 		"homeworks",
@@ -29,9 +29,3 @@ func (c *Create) Monorepo(args []string) {
 		utils.CreateFolder(name, folder)
 	}
 }
-
-func (c *Create) Component(args []string) {}
-
-func (c *Create) Homework(args []string) {}
-
-func (c *Create) SmallProject(args []string) {}

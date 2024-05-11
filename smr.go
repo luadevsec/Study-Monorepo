@@ -16,7 +16,7 @@ var CommandMap = map[string] Command.ICommand{}
 
 func Execute(cmd string, key string ,args []string) {
 	if command, ok := CommandMap[cmd]; ok {
-		command.Execute(key, args)
+		command.Execute(key, &Path ,args)
 	} else {
 		fmt.Println("Comando ", cmd, " não encontrado, digite help para ver os comandos disponíveis")
 	}
@@ -37,11 +37,15 @@ func ParseCommand(input string) (string, string, []string) {
     }
 }
 
+var Path string = "."
+
 func main() {
 	CommandMap["create"] = Command.CommandFactory(1)
 	CommandMap["delete"] = Command.CommandFactory(2)
 	CommandMap["test"] = Command.CommandFactory(3)
 	CommandMap["help"] = Command.CommandFactory(4)
+	CommandMap["monorepo"] = Command.CommandFactory(5)
+	CommandMap["mono"] = CommandMap["monorepo"]
 
 
 	for forever := true; forever;{
@@ -49,7 +53,7 @@ func main() {
 		
 		var input string
 
-		fmt.Print("Enter command: ")
+		fmt.Print(Path, " smr> ")
 		scanner.Scan()
 		input = scanner.Text()
 		if input == "exit" {

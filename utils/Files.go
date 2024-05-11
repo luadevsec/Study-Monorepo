@@ -20,3 +20,12 @@ func CreateFile(local string, name string) {
 func DeleteFile(local string, name string) {
 	os.Remove(local + "/" + name)
 }
+
+func Contains(slice []string, item string) bool {
+	for _, s := range slice {
+		if s == item {
+			return true
+		}
+	}
+	return false
+}

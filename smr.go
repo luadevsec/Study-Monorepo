@@ -43,7 +43,8 @@ func main() {
 	CommandMap["test"] = Command.CommandFactory(3)
 	CommandMap["help"] = Command.CommandFactory(4)
 
-	for {
+
+	for forever := true; forever;{
 		scanner := bufio.NewScanner(os.Stdin)
 		
 		var input string
@@ -51,6 +52,10 @@ func main() {
 		fmt.Print("Enter command: ")
 		scanner.Scan()
 		input = scanner.Text()
+		if input == "exit" {
+			forever = false
+			break
+		}
 		Execute(ParseCommand(input))
 	}
 

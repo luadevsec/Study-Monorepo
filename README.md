@@ -14,6 +14,6 @@
  - [ ] gestão de monorepo completa
    - [ ] logar em um monorepo
    - [ ] sair do monorepo
-   - [ ] criar um monorepo
+   - [x] criar um monorepo
    - [ ] remover um monorepo
 

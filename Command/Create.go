@@ -24,6 +24,7 @@ func (c *Create) Monorepo(args []string) {
 	}
 
 	utils.CreateFolder(".", name)
+	utils.CreateMonolist(".", name)
 	for _, folder := range src {
 		utils.CreateFolder(name, folder)
 	}

@@ -2,12 +2,16 @@
  um gerenciador de monorepos para estudo
 
 
- a partir do estado atual o projeto está tecnicamente pronto, basta completar as implementações então
- um novo começo se inicia e um novo roadmap começa
 
 
- Roadmap plain
- ---------------------------------------------------------
+
+
+
+
+Roadmap plain
+---------------------------------------------------------
+
+em breve shortcuts e linked readme !!!!!
 
 <details>
    <summary>Roadmap plain beta</summary>
@@ -28,6 +32,21 @@
 </details>
 
 
+ - [ ] shortcuts
+   - [x] monorepo `mono`
+   - [ ] create
+   - [ ] delete
+   - [ ] help
+   - [ ] use
+   - [ ] start
+   - [ ] test 
+ - [ ] linked readme
+   - [ ] criando um readme por projeto com descritivo
+   - [ ] template de readme
+   - [ ] escrever e ler filhos de bullet list
+   - [ ] sistema de linkagem
+   - [ ] inserção correta do novo elemento em seu lugar
+
  - [x] Creator
    - [x] criar monorepos
    - [x] criar projetos
@@ -46,11 +65,11 @@
    - [x] remover um componente
    - [x] remover uma homework
    - [x] remover um teste
- - [ ] Helper
-   - [ ] help para creator
+ - [x] Helper
+   - [x] help para creator
    - [ ] help para user
-   - [ ] help para deleter
-   - [ ] help para helper
+   - [x] help para deleter
+   - [x] help para helper
    - [ ] help para tester
  - [ ] Tester
    - [ ] testar monorepos
